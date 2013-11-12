@@ -1,0 +1,88 @@
+<?php
+	if ($user = $this->identity()) {
+		$status = 'Logged in as '.$user;
+	} else {
+		$status = 'Not logged in';
+	}
+	//print $status;
+?>
+	<div class="container">
+<?php
+		$form->prepare();
+		$form->setAttribute('action', $this->url('registration'));
+		$form->setAttribute('method', 'post');
+
+		echo $this->form()->openTag($form);
+?>
+			<h2 class="form-signin-heading"><?php print $title; ?></h2>
+<?php 
+			$errors = $this->formElementErrors($form);
+			if ($errors) print '<div class="alert alert-error">'.$errors.'</div>';
+			if (count($messages) > 0) {
+				print '<div class="success">';
+				foreach($messages as $id  => $message)
+				{
+					print $message."<br />";
+				}
+				print '</div>';
+			}
+			echo $this->formInput($form->get('id'));
+?>
+			<div class="control-group">
+				<label class="control-label">
+					<?php echo $this->formLabel($form->get('email')) ?>
+				</label>
+				<div class="controls">
+					<div class="input-icon left">
+						<?php echo $this->formInput($form->get('email')) ?>
+					</div>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">
+					<?php echo $this->formLabel($form->get('firstname')) ?>
+				</label>
+				<div class="controls">
+					<div class="input-icon left">
+						<?php echo $this->formInput($form->get('firstname')) ?>
+					</div>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">
+					<?php echo $this->formLabel($form->get('lastname')) ?>
+				</label>
+				<div class="controls">
+					<div class="input-icon left">
+						<?php echo $this->formInput($form->get('lastname')) ?>
+					</div>
+				</div>
+			</div>
+			<div class="control-group">
+				<div class="controls">
+					<div class="input-icon left">
+						<?php echo $this->formInput($form->get('password')) ?>
+					</div>
+				</div>
+			</div>
+			<div class="control-group">
+				<div class="controls">
+					<div class="input-icon left">
+						<?php echo $this->formInput($form->get('confirm-password')) ?>
+					</div>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">
+					<?php echo $this->formLabel($form->get('image')); ?>
+				</label>
+				<div class="controls">
+					<div class="input-icon left">
+						<?php echo $this->formFile($form->get('image')); ?>
+					</div>
+				</div>
+			</div>
+			<?php echo $this->formSubmit($form->get('submit'));
+			echo $this->form()->closeTag();
+		 ?>
+	</div>

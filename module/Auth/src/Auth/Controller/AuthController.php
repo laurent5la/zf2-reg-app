@@ -67,7 +67,7 @@
 	                // create auth adapter
 	                $authAdapter = new AuthAdapter($dbAdapter);
 	                // configure auth adapter
-	                $authAdapter->setTableName('la_users')
+	                $authAdapter->setTableName('users')
 	                        ->setIdentityColumn('email')
 	                        ->setCredentialColumn('password');
 	                

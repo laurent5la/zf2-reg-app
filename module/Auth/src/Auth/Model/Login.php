@@ -8,12 +8,12 @@
 
 	class Login implements InputFilterAwareInterface {
 
-    	//public $block;
+    	
     	public $password;
    		protected $inputFilter;
     
     	public function exchangeArray($data) {
-        //	$this->block = (isset($data['block'])) ? $data['block'] : null;
+        
         	$this->password = (isset($data['password'])) ? $data['password'] : null;
     	}
 

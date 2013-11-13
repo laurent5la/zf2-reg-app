@@ -14,7 +14,7 @@
 
 	    protected $tableGateway;
 
-	    protected $_table = 'la_users';
+	    protected $_table = 'users';
 
 	    public function __construct(TableGateway $tableGateway) {
 	    	

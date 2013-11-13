@@ -100,7 +100,7 @@
 		            	$validator = new NoRecordExists(
 		            			
 		            			array(
-		            				'table'   => 'la_users',
+		            				'table'   => 'users',
 		            				'field'   => 'email',
 		            				'adapter' => $dbAdapter
 		            			)

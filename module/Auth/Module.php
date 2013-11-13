@@ -75,7 +75,7 @@
 	    					$dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
 	    					$resultSetPrototype = new ResultSet();
 	    					$resultSetPrototype->setArrayObjectPrototype(new Login());
-	    					return new TableGateway('la_users', $dbAdapter, null, $resultSetPrototype);
+	    					return new TableGateway('users', $dbAdapter, null, $resultSetPrototype);
 	    				},
 	    				'lan_auth_service' => function ($sm) {
 	    					$dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
@@ -83,7 +83,7 @@
 	    					$authAdapter = new AuthAdapter($dbAdapter);
 	    				
 	    					// configure auth adapter
-	    					$authAdapter->setTableName('la_users')
+	    					$authAdapter->setTableName('users')
 	    						->setIdentityColumn('email')
 	    						->setCredentialColumn('password');
 	    				
